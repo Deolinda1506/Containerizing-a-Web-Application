@@ -1,22 +1,22 @@
 # Containerizing-a-Web-Application
 
-##Project: Task Manager Web Application
+## Project: Task Manager Web Application
 
 This project aims to develop a simple, user-friendly web application for managing personal projects and tasks. The application allows users to create, manage, and track their tasks efficiently. Additionally, the application will be containerized using Docker to ensure easy deployment and scalability across different environments.
 
-#Instructions
+# Instructions
 
-##Running the Application Locally
+## Running the Application Locally
 Clone the repository to your local machine.
 Open the index.html file in a web browser to access the application.
 Building the Docker Image and Running a Container
 Ensure Docker is installed on your system.
 Navigate to the root directory of the project.
 
-#Build the Docker image using the following command:
+# Build the Docker image using the following command:
 docker build -t task-manager-app .
 
-#Once the image is built, you can run a container using the following command:
+# Once the image is built, you can run a container using the following command:
 docker run -d -p 8080:80 task-manager-app
 
 Access the application in your web browser at http://localhost:8080.
