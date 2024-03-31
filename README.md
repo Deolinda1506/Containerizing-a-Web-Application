@@ -8,6 +8,7 @@ This project aims to develop a simple, user-friendly web application for managin
 
 ## Running the Application Locally
 Clone the repository to your local machine.
+## git clone https://github.com/Deolinda1506/Containerizing-a-Web-Application.git
 Open the index.html file in a web browser to access the application.
 Building the Docker Image and Running a Container
 Ensure Docker is installed on your system.
