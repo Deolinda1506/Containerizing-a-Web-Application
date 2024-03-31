@@ -34,7 +34,7 @@ sudo docker build -t deolinda1506/containerizing-a-web-application:latest .
 Running the Docker Container
 Once the Docker image is built, you can run a Docker container using the following command:
 
-sudo docker run -d -p 3000:3000 deolinda1506/containerizing-a-web-application:latest
+sudo docker run -d -p 8080:80 deolinda1506/containerizing-a-web-application:latest
 
 Pushing the Docker Container
 Once logged in, you can push the tagged Docker image to Docker Hub using the docker push command:
@@ -44,7 +44,7 @@ sudo docker push deolinda1506/containerizing-a-web-application:latest
 Assumptions and Decisions
 For simplicity and ease of development, the application is developed using HTML, CSS, and JavaScript without the use of additional libraries or frameworks.
 The Dockerfile specifies a lightweight base image to minimize image size and optimize performance.
-Port 3000 is exposed in the Dockerfile to allow external access to the application.
+Port 80 is exposed in the Dockerfile to allow external access to the application.
 Evaluation Criteria
 Functionality and usability of the web application.
 Correctness and completeness of the Dockerfile.
