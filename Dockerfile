@@ -1,12 +1,18 @@
-# Use a lightweight web server image as the base
+# Use an official web server image as the base image
 FROM nginx:alpine
 
-# Copy the application content into the nginx web server's working directory
-COPY . /usr/share/nginx/html
+# Set the working directory in the container
+WORKDIR /usr/share/nginx/html
 
-# Expose port 80 to allow access to the web server
+# Copy the HTML, CSS, and JavaScript files into the container
+COPY index.html .
+COPY styles.css .
+COPY script.js .
+
+# Expose port 80 to allow external access
 EXPOSE 80
 
-# Command to start the nginx web server
+# Command to start the web server
 CMD ["nginx", "-g", "daemon off;"]
+
 
