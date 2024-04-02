@@ -1,31 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const taskForm = document.getElementById("taskForm");
-    const taskInput = document.getElementById("taskInput");
-    const taskList = document.getElementById("taskList");
-
-    taskForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const taskText = taskInput.value.trim();
-        if (taskText !== "") {
-            addTask(taskText);
-            taskInput.value = "";
-        }
+function addTask() {
+    var taskInput = document.getElementById("taskInput").value;
+        if (taskInput.trim() !== '') {
+    var taskElement = document.createElement("div");
+    taskElement.className = "task";
+    taskElement.innerText = taskInput;
+    taskElement.draggable = true;
+    taskElement.addEventListener("dragstart", function(event) {
+        event.dataTransfer.setData("text/plain", taskInput);
     });
+    
+    var todoColumn = document.getElementById("todo");
+    todoColumn.appendChild(taskElement);
+    
+    document.getElementById("taskInput").value = "";
+}
 
-    function addTask(taskText) {
-        const taskItem = document.createElement("li");
-        taskItem.classList.add("task");
-        taskItem.innerHTML = `
-            <input type="checkbox">
-            <span>${taskText}</span>
-            <button class="delete-btn">Delete</button>
-        `;
-        taskList.appendChild(taskItem);
-        taskItem.querySelector("input[type='checkbox']").addEventListener("change", function() {
-            taskItem.classList.toggle("completed");
-        });
-        taskItem.querySelector(".delete-btn").addEventListener("click", function() {
-            taskItem.remove();
-        });
-    }
-});
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+    var taskInput = event.dataTransfer.getData("text/plain");
+    var taskElement = document.createElement("div");
+    taskElement.className = "task";
+    taskElement.innerText = taskInput;
+    taskElement.draggable = true;
+    taskElement.addEventListener("dragstart", function(event) {
+        event.dataTransfer.setData("text/plain", taskInput);
+    });
+    event.target.appendChild(taskElement);
+}
+
+function toggleTaskStatus(event) {
+    var taskElement = event.target;
+    taskElement.classList.toggle("completed");
+}
